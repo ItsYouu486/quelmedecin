@@ -10,6 +10,8 @@ public class MedecinGeneraliste {
 
     private static int tarif = 25;
 
+    private Adresse adresse;
+
     public MedecinGeneraliste(){
 
     }
@@ -20,7 +22,12 @@ public class MedecinGeneraliste {
         this.numeroDeTelephone = numeroDeTelephone;
     }
 
-
+    public MedecinGeneraliste(String nom, String prenom, String numeroDeTelephone, Adresse adresse) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.numeroDeTelephone = numeroDeTelephone;
+        this.adresse = adresse;
+    }
 
     public String getNom(){
         return nom;
@@ -54,10 +61,22 @@ public class MedecinGeneraliste {
         MedecinGeneraliste.tarif = tarif; // Mise à jour du champ statique
     }
 
+    public Adresse getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
+    }
+
     public void afficher(){
         System.out.println(this.prenom + " " + this.nom);
         System.out.printf("Téléphone : %s%n",this.numeroDeTelephone);
         System.out.printf("Tarif : %d%n", MedecinGeneraliste.tarif);
+        System.out.println("Adresse : ");
+        System.out.println(adresse.getMentionsCompl());
+        System.out.println(adresse.getNumero() + " " + adresse.getRue());
+        System.out.println(adresse.getCp() + " " + adresse.getVille());
 
     }
 }

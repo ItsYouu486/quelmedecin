@@ -1,12 +1,16 @@
 package bo;
 
+import java.util.List;
+
 public class Adresse {
-    public String mentionsCompl;
-    public int numero;
-    public String complNumero;
-    public String rue;
-    public int cp;
-    public String ville;
+    private String mentionsCompl;
+    private int numero;
+    private String complNumero;
+    private String rue;
+    private int cp;
+    private String ville;
+
+    private List<MedecinGeneraliste> medecinGeneralistes;
 
     public Adresse(){
 
@@ -28,6 +32,16 @@ public class Adresse {
         this.cp = cp;
         this.ville = ville;
         this.mentionsCompl = null;
+    }
+
+    public Adresse(String mentionsCompl, int numero, String complNumero, String rue, int cp, String ville, List<MedecinGeneraliste> medecinGeneralistes) {
+        this.mentionsCompl = mentionsCompl;
+        this.numero = numero;
+        this.complNumero = complNumero;
+        this.rue = rue;
+        this.cp = cp;
+        this.ville = ville;
+        this.medecinGeneralistes = medecinGeneralistes;
     }
 
     public String getMentionsCompl() {
@@ -76,6 +90,14 @@ public class Adresse {
 
     public void setVille(String ville) {
         this.ville = ville;
+    }
+
+    public List<MedecinGeneraliste> getMedecinGeneralistes() {
+        return medecinGeneralistes;
+    }
+
+    public void setMedecinGeneralistes(List<MedecinGeneraliste> medecinGeneralistes) {
+        this.medecinGeneralistes = medecinGeneralistes;
     }
 
     public void afficher(){
