@@ -74,9 +74,6 @@ public class MedecinGeneraliste {
         System.out.printf("Téléphone : %s%n",this.numeroDeTelephone);
         System.out.printf("Tarif : %d%n", MedecinGeneraliste.tarif);
         System.out.println("Adresse : ");
-        System.out.println(adresse.getMentionsCompl());
-        System.out.println(adresse.getNumero() + " " + adresse.getRue());
-        System.out.println(adresse.getCp() + " " + adresse.getVille());
-
+        this.adresse.afficher();
     }
 }
