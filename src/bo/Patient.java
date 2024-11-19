@@ -3,54 +3,29 @@ package bo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Patient {
-    private String nom;
-    private String prenom;
-    private String numeroDeTelephone;
+public class Patient extends Personne {
+
     private char sexe;
-    private Long numSecu;
+    private long numSecu;
     private LocalDate dateNaissance;
     private String commentaires;
 
     private Adresse adresse;
 
     public Patient() {
+        super();
 
     }
 
-    public Patient(String nom, String prenom, String numeroDeTelephone, char sexe, long numSecu, LocalDate dateNaissance, String commentaires, Adresse adresse) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.numeroDeTelephone = numeroDeTelephone;
+
+
+    public Patient(String nom, String prenom, String numeroDeTelephone,char sexe, Long numSecu, LocalDate dateNaissance, String commentaires, Adresse adresse) {
+        super(nom, prenom, numeroDeTelephone);
         this.sexe = sexe;
         this.numSecu = numSecu;
         this.dateNaissance = dateNaissance;
         this.commentaires = commentaires;
         this.adresse = adresse;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public String getNumeroDeTelephone() {
-        return numeroDeTelephone;
-    }
-
-    public void setNumeroDeTelephone(String numeroDeTelephone) {
-        this.numeroDeTelephone = numeroDeTelephone;
     }
 
     public char getSexe() {
@@ -94,13 +69,22 @@ public class Patient {
     }
 
     public void afficher(){
-        System.out.println(this.prenom + " " + this.nom);
-        System.out.printf("Téléphone : %s%n",this.numeroDeTelephone);
-        System.out.printf("Sexe : %s%n",this.sexe);
+        super.afficher();
+
+        if (this.sexe == 'M'){
+            System.out.printf("Sexe : Masculin %n");
+        } else if (this.sexe == 'F'){
+            System.out.println("Sexe : Feminin %n");
+        }else System.out.println("Sexe inconnu");
+
         System.out.printf("Numéro de sécurité sociale : %d%n",this.numSecu);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         System.out.printf("Date de naissance : %s%n",dateNaissance.format(formatter));
-        System.out.printf("Commentaires : %s%n",this.commentaires);
+
+        if (this.commentaires != null){
+            System.out.printf("Commentaires : %s%n",this.commentaires);
+        }else System.out.println("Commentaires : [aucun commentaire]");
+
         this.adresse.afficher();
 
     }

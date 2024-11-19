@@ -81,7 +81,7 @@ public class Adresse {
     }
 
     public void afficher(){
-
+        System.out.println("Adresse : ");
         if (this.mentionsCompl != null) {
 
             System.out.println(this.mentionsCompl);

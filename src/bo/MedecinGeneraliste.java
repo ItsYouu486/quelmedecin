@@ -5,11 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedecinGeneraliste {
-
-    private String nom;
-    private String prenom;
-    private String numeroDeTelephone;
+public class MedecinGeneraliste extends Personne {
 
     private static int tarif = 25;
 
@@ -17,39 +13,15 @@ public class MedecinGeneraliste {
 
     private List<Creneau> creneauList = new ArrayList<>();
 
-    public MedecinGeneraliste(){
 
+
+    public MedecinGeneraliste(){
+        super();
     }
 
     public MedecinGeneraliste(String nom, String prenom, String numeroDeTelephone, Adresse adresse) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.numeroDeTelephone = numeroDeTelephone;
+        super(nom, prenom, numeroDeTelephone);
         this.adresse = adresse;
-    }
-
-    public String getNom(){
-        return nom;
-    }
-
-    public void setNom(String nom){
-        this.nom = nom;
-    }
-
-    public String getPrenom(){
-        return prenom;
-    }
-
-    public void setPrenom(String prenom){
-        this.prenom = prenom;
-    }
-
-    public String getNumeroDeTelephone(){
-        return numeroDeTelephone;
-    }
-
-    public void setNumeroDeTelephone(String numeroDeTelephone){
-        this.numeroDeTelephone = numeroDeTelephone;
     }
 
     public int getTarif() {
@@ -82,14 +54,19 @@ public class MedecinGeneraliste {
     }
 
     public void afficher(){
-        System.out.println(this.prenom + " " + this.nom);
-        System.out.printf("Téléphone : %s%n",this.numeroDeTelephone);
+        super.afficher();
         System.out.printf("Tarif : %d%n", MedecinGeneraliste.tarif);
-        System.out.println("Adresse : ");
+    }
+
+    public void afficherAdresseEtCreneaux(){
         this.adresse.afficher();
-        System.out.println("Créneaux : ");
-        for (Creneau creneau : creneauList){
-            creneau.afficher();
+        if (this.creneauList == null || this.creneauList.isEmpty()){
+            System.out.println("Créneaux : aucun créneau");
+        }else {
+            System.out.println("Créneaux : ");
+            for (Creneau creneau : creneauList) {
+                creneau.afficher();
+            }
         }
     }
 
