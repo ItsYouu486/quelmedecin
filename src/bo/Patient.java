@@ -8,15 +8,17 @@ public class Patient {
     private String prenom;
     private String numeroDeTelephone;
     private char sexe;
-    private long numSecu;
+    private Long numSecu;
     private LocalDate dateNaissance;
     private String commentaires;
+
+    private Adresse adresse;
 
     public Patient() {
 
     }
 
-    public Patient(String nom, String prenom, String numeroDeTelephone, char sexe, long numSecu, LocalDate dateNaissance, String commentaires) {
+    public Patient(String nom, String prenom, String numeroDeTelephone, char sexe, long numSecu, LocalDate dateNaissance, String commentaires, Adresse adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.numeroDeTelephone = numeroDeTelephone;
@@ -24,6 +26,7 @@ public class Patient {
         this.numSecu = numSecu;
         this.dateNaissance = dateNaissance;
         this.commentaires = commentaires;
+        this.adresse = adresse;
     }
 
     public String getNom() {
@@ -82,7 +85,13 @@ public class Patient {
         this.commentaires = commentaire;
     }
 
+    public Adresse getAdresse() {
+        return adresse;
+    }
 
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
+    }
 
     public void afficher(){
         System.out.println(this.prenom + " " + this.nom);
@@ -92,6 +101,7 @@ public class Patient {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         System.out.printf("Date de naissance : %s%n",dateNaissance.format(formatter));
         System.out.printf("Commentaires : %s%n",this.commentaires);
+        this.adresse.afficher();
 
     }
 }
