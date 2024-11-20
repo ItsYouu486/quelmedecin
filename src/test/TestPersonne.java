@@ -13,15 +13,17 @@ public class TestPersonne {
 	private static Personne malalaniche = new MedecinGeneraliste("Malalaniche", "Mélanie", "02.28.03.17.28", sh);
 
 	private static Adresse nio = new Adresse(19, null, "avenue Léo Lagrange", 79000, "Niort");
-	private static Patient adhemar = new Patient("Pamamobe", "Adhémar", "0753428619", 'M', 192112192020142l,
+	private static Patient adhemar = new Patient("Pamamobe", "Adhémar", "0753428619", 'M', 192112192020142L,
 			LocalDate.of(1992, 11, 21), null, nio);
 
 	public static void main(String[] args) {
 		System.out.println("__________________________ Affichage d'un médecin ______________________________");
-		malalaniche.afficher();
+		System.out.println(malalaniche.toString()); // Remplacement de afficher() par toString()
+
 		// transtypage descendant
 		MedecinGeneraliste melanie = (MedecinGeneraliste) malalaniche;
-		melanie.afficherAdresseEtCreneaux();
+		System.out.println(melanie.toString()); // Affichage des informations du médecin
+		melanie.afficherAdresseEtCreneaux(); // Utilisation de afficherAdresseEtCreneaux()
 
 		System.out.println("__________________________ Affectation des creneaux au médecin ______________________________");
 		// Ajouter des créneaux avec la méthode ajouterCreneau()
@@ -42,14 +44,14 @@ public class TestPersonne {
 		melanie.ajouterCreneau(LocalTime.of(16, 30), 30);
 
 		// polymorphisme
-		melanie.afficher();
-		melanie.afficherAdresseEtCreneaux();
+		System.out.println(melanie.toString()); // Affichage des informations du médecin
+		melanie.afficherAdresseEtCreneaux(); // Utilisation de afficherAdresseEtCreneaux()
 
 		System.out.println("__________________________ Affichage d'un Patient ______________________________");
-		adhemar.afficher();
+		System.out.println(adhemar.toString()); // Remplacement de afficher() par toString()
 
 		System.out.println("__________________________ Afficher le rendez-vous du Patient ___________________________");
 		RendezVous rdv = new RendezVous(melanie.getCreneauList().get(0), adhemar, LocalDate.of(2020, 5, 23));
-		rdv.afficher();
+		System.out.println(rdv.toString()); // Remplacement de afficher() par toString()
 	}
 }

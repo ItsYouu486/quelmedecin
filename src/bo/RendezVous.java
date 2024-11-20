@@ -43,11 +43,45 @@ public class RendezVous {
         this.date = date;
     }
 
-    public void afficher(){
+//    public void afficher() {
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//        System.out.printf("Rendez-vous du %s%n", this.date.format(formatter));
+//        creneau.afficher();
+//        if (creneau.getMedecin() != null) {
+//            System.out.printf("avec le Dr %s%n", creneau.getMedecin().getNom());
+//        }
+//        System.out.println("pour ");
+//        patient.afficher();
+//    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        System.out.printf("Rendez-vous du %s%n", this.date.format(formatter));
-        creneau.afficher();
-        System.out.println("pour ");
-        patient.afficher();
+
+        sb.append("Rendez-vous:\n")
+                .append("  Date: ").append(date.format(formatter)).append("\n");
+
+        // Informations sur le créneau
+        if (creneau != null) {
+            sb.append("  Créneau:\n")
+                    .append("    ").append(creneau).append("\n");
+            if (creneau.getMedecin() != null) {
+                sb.append("  Médecin: Dr ").append(creneau.getMedecin().getNom()).append("\n");
+            }
+        } else {
+            sb.append("  Créneau: [non défini]\n");
+        }
+
+        // Informations sur le patient
+        if (patient != null) {
+            sb.append("  Patient:\n")
+                    .append("    ").append(patient).append("\n");
+        } else {
+            sb.append("  Patient: [non défini]\n");
+        }
+
+        return sb.toString();
     }
+
 }

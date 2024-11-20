@@ -80,13 +80,37 @@ public class Adresse {
         this.ville = ville;
     }
 
-    public void afficher(){
-        System.out.println("Adresse : ");
-        if (this.mentionsCompl != null) {
+//    public void afficher(){
+//        System.out.println("Adresse : ");
+//        if (this.mentionsCompl != null) {
+//
+//            System.out.println(this.mentionsCompl);
+//        }
+//        System.out.printf("%d %s%n",this.numero,this.rue);
+//        System.out.println(this.cp + " " + this.ville);
+//    }
 
-            System.out.println(this.mentionsCompl);
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Adresse:\n");
+
+        // Mentions complémentaires
+        if (this.mentionsCompl != null) {
+            sb.append("  ").append(mentionsCompl).append("\n");
         }
-        System.out.printf("%d %s%n",this.numero,this.rue);
-        System.out.println(this.cp + " " + this.ville);
+
+        // Numéro et rue
+        sb.append("  ").append(numero);
+        if (complNumero != null && !complNumero.isEmpty()) {
+            sb.append(" ").append(complNumero);
+        }
+        sb.append(" ").append(rue).append("\n");
+
+        // Code postal et ville
+        sb.append("  ").append(cp).append(" ").append(ville).append("\n");
+
+        return sb.toString();
     }
+
 }

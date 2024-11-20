@@ -42,8 +42,19 @@ public class Personne {
         this.numeroDeTelephone = numeroDeTelephone;
     }
 
-    public void afficher(){
-        System.out.println(this.prenom + " " + this.nom);
-        System.out.printf("Téléphone : %s%n",this.numeroDeTelephone);
+//    public void afficher(){
+//        System.out.println(this.prenom + " " + this.nom);
+//        System.out.printf("Téléphone : %s%n",this.numeroDeTelephone);
+//    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Personne:\n")
+                .append("  Prénom: ").append(prenom).append("\n")
+                .append("  Nom: ").append(nom).append("\n")
+                .append("  Téléphone: ").append(numeroDeTelephone != null ? numeroDeTelephone : "[non renseigné]").append("\n");
+        return sb.toString();
     }
+
 }

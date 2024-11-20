@@ -7,22 +7,23 @@ public class Creneau {
     private LocalTime heureDebut;
     private int duree;
 
-    private MedecinGeneraliste medecinGeneraliste;
+    private Medecin medecin;
 
     public Creneau() {
 
     }
 
-    public Creneau(LocalTime heureDebut, int duree, MedecinGeneraliste medecinGeneraliste) {
+    public Creneau(LocalTime heureDebut, int duree, Medecin medecin) {
         this.heureDebut = heureDebut;
         this.duree = duree;
-        this.medecinGeneraliste = medecinGeneraliste;
+        this.medecin = medecin;
     }
 
     public Creneau(LocalTime heureDebut, int duree) {
         this.heureDebut = heureDebut;
         this.duree = duree;
     }
+
 
     public LocalTime getHeureDebut() {
         return heureDebut;
@@ -40,17 +41,29 @@ public class Creneau {
         this.duree = duree;
     }
 
-    public MedecinGeneraliste getMedecinGeneraliste() {
-        return medecinGeneraliste;
+    public Medecin getMedecin() {
+        return medecin;
     }
 
-    public void setMedecinGeneraliste(MedecinGeneraliste medecinGeneraliste) {
-        this.medecinGeneraliste = medecinGeneraliste;
+    public void setMedecinGeneraliste(Medecin medecin) {
+        this.medecin = medecin;
     }
 
-    public void afficher() {
-        LocalTime heureFin = this.heureDebut.plusMinutes(this.duree); // Calcul de l'heure de fin
-        System.out.printf("%s - %s (%d minutes)%n", this.heureDebut, heureFin, this.duree);
+//    public void afficher() {
+//        LocalTime heureFin = this.heureDebut.plusMinutes(this.duree); // Calcul de l'heure de fin
+//        System.out.printf("%s - %s (%d minutes)%n", this.heureDebut, heureFin, this.duree);
+//    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        LocalTime heureFin = this.heureDebut.plusMinutes(this.duree);
+        sb.append("Creneau: \n")
+                .append("  Heure de début: ").append(heureDebut).append("\n")
+                .append("  Heure de fin: ").append(heureFin).append("\n")
+                .append("  Durée: ").append(duree).append(" minutes\n")
+                .append("  Médecin: ").append(medecin).append("\n");
+        return sb.toString();
     }
 
 }

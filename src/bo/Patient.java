@@ -68,24 +68,63 @@ public class Patient extends Personne {
         this.adresse = adresse;
     }
 
-    public void afficher(){
-        super.afficher();
+//    public void afficher(){
+//        super.afficher();
+//
+//        if (this.sexe == 'M'){
+//            System.out.printf("Sexe : Masculin %n");
+//        } else if (this.sexe == 'F'){
+//            System.out.println("Sexe : Feminin %n");
+//        }else System.out.println("Sexe inconnu");
+//
+//        System.out.printf("Numéro de sécurité sociale : %d%n",this.numSecu);
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//        System.out.printf("Date de naissance : %s%n",dateNaissance.format(formatter));
+//
+//        if (this.commentaires != null){
+//            System.out.printf("Commentaires : %s%n",this.commentaires);
+//        }else System.out.println("Commentaires : [aucun commentaire]");
+//
+//        this.adresse.afficher();
+//
+//    }
 
-        if (this.sexe == 'M'){
-            System.out.printf("Sexe : Masculin %n");
-        } else if (this.sexe == 'F'){
-            System.out.println("Sexe : Feminin %n");
-        }else System.out.println("Sexe inconnu");
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Patient:\n");
 
-        System.out.printf("Numéro de sécurité sociale : %d%n",this.numSecu);
+        // Sexe
+        if (this.sexe == 'M') {
+            sb.append("  Sexe: Masculin\n");
+        } else if (this.sexe == 'F') {
+            sb.append("  Sexe: Féminin\n");
+        } else {
+            sb.append("  Sexe: Inconnu\n");
+        }
+
+        // Numéro de sécurité sociale
+        sb.append("  Numéro de sécurité sociale: ").append(numSecu).append("\n");
+
+        // Date de naissance
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        System.out.printf("Date de naissance : %s%n",dateNaissance.format(formatter));
+        sb.append("  Date de naissance: ").append(dateNaissance.format(formatter)).append("\n");
 
-        if (this.commentaires != null){
-            System.out.printf("Commentaires : %s%n",this.commentaires);
-        }else System.out.println("Commentaires : [aucun commentaire]");
+        // Commentaires
+        if (this.commentaires != null) {
+            sb.append("  Commentaires: ").append(commentaires).append("\n");
+        } else {
+            sb.append("  Commentaires: [aucun commentaire]\n");
+        }
 
-        this.adresse.afficher();
+        // Adresse
+        if (this.adresse != null) {
+            sb.append("  Adresse: ").append(adresse.toString()).append("\n");
+        } else {
+            sb.append("  Adresse: [aucune adresse]\n");
+        }
 
+        return sb.toString();
     }
+
 }
