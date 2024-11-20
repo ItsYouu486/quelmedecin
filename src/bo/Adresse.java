@@ -80,16 +80,6 @@ public class Adresse {
         this.ville = ville;
     }
 
-//    public void afficher(){
-//        System.out.println("Adresse : ");
-//        if (this.mentionsCompl != null) {
-//
-//            System.out.println(this.mentionsCompl);
-//        }
-//        System.out.printf("%d %s%n",this.numero,this.rue);
-//        System.out.println(this.cp + " " + this.ville);
-//    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

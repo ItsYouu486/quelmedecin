@@ -68,27 +68,6 @@ public class Patient extends Personne {
         this.adresse = adresse;
     }
 
-//    public void afficher(){
-//        super.afficher();
-//
-//        if (this.sexe == 'M'){
-//            System.out.printf("Sexe : Masculin %n");
-//        } else if (this.sexe == 'F'){
-//            System.out.println("Sexe : Feminin %n");
-//        }else System.out.println("Sexe inconnu");
-//
-//        System.out.printf("Numéro de sécurité sociale : %d%n",this.numSecu);
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        System.out.printf("Date de naissance : %s%n",dateNaissance.format(formatter));
-//
-//        if (this.commentaires != null){
-//            System.out.printf("Commentaires : %s%n",this.commentaires);
-//        }else System.out.println("Commentaires : [aucun commentaire]");
-//
-//        this.adresse.afficher();
-//
-//    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

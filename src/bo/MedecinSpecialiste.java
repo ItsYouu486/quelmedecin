@@ -2,7 +2,7 @@ package bo;
 
 import java.util.List;
 
-public class MedecinSpecialiste extends Medecin{
+public class MedecinSpecialiste extends Medecin implements Comparable<MedecinSpecialiste>{
 
     private String specialite;
     private int tarif;
@@ -14,12 +14,25 @@ public class MedecinSpecialiste extends Medecin{
         this.tarif = tarif;
     }
 
-//    @Override
-//    public void afficher() {
-//        super.toString();
-//        System.out.printf("Spécialité : %s%n", this.specialite);
-//        System.out.printf("Tarif : %d%n", this.tarif);
-//    }
+    public MedecinSpecialiste(String nom, String prenom, String numeroDeTelephone, Adresse adresse) {
+        super(nom, prenom, numeroDeTelephone, adresse);
+    }
+
+    public String getSpecialite() {
+        return specialite;
+    }
+
+    public void setSpecialite(String specialite) {
+        this.specialite = specialite;
+    }
+
+    public int getTarif() {
+        return tarif;
+    }
+
+    public void setTarif(int tarif) {
+        this.tarif = tarif;
+    }
 
     @Override
     public String toString() {
@@ -32,4 +45,8 @@ public class MedecinSpecialiste extends Medecin{
         return sb.toString();
     }
 
+    @Override
+    public int compareTo(MedecinSpecialiste o) {
+        return this.tarif - o.tarif;
+    }
 }

@@ -43,17 +43,6 @@ public class RendezVous {
         this.date = date;
     }
 
-//    public void afficher() {
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        System.out.printf("Rendez-vous du %s%n", this.date.format(formatter));
-//        creneau.afficher();
-//        if (creneau.getMedecin() != null) {
-//            System.out.printf("avec le Dr %s%n", creneau.getMedecin().getNom());
-//        }
-//        System.out.println("pour ");
-//        patient.afficher();
-//    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

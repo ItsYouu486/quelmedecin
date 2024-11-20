@@ -19,6 +19,8 @@ public class MedecinGeneraliste extends Medecin {
     }
 
 
+
+
     public int getTarif() {
         return tarif;
     }
@@ -26,12 +28,6 @@ public class MedecinGeneraliste extends Medecin {
     public static void setTarif(int tarif) {
         MedecinGeneraliste.tarif = tarif; // Mise à jour du champ statique
     }
-
-
-//    public void afficher(){
-//        super.afficher();
-//        System.out.printf("Tarif : %d%n", MedecinGeneraliste.tarif);
-//    }
 
     @Override
     public String toString() {

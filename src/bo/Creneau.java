@@ -49,11 +49,6 @@ public class Creneau {
         this.medecin = medecin;
     }
 
-//    public void afficher() {
-//        LocalTime heureFin = this.heureDebut.plusMinutes(this.duree); // Calcul de l'heure de fin
-//        System.out.printf("%s - %s (%d minutes)%n", this.heureDebut, heureFin, this.duree);
-//    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

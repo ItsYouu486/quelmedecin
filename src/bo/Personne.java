@@ -2,7 +2,7 @@ package bo;
 
 import java.time.format.DateTimeFormatter;
 
-public class Personne {
+public abstract class Personne {
     private String nom;
     private String prenom;
     private String numeroDeTelephone;
@@ -41,11 +41,6 @@ public class Personne {
     public void setNumeroDeTelephone(String numeroDeTelephone) {
         this.numeroDeTelephone = numeroDeTelephone;
     }
-
-//    public void afficher(){
-//        System.out.println(this.prenom + " " + this.nom);
-//        System.out.printf("Téléphone : %s%n",this.numeroDeTelephone);
-//    }
 
     @Override
     public String toString() {
